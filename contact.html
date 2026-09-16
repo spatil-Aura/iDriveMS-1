@@ -17,7 +17,7 @@ html,body{margin:0;padding:0;background:#F7F7F7}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 *{box-sizing:border-box}
 a{color:#437CB7;text-decoration:none}
-a:hover{color:#B74C43}
+a:hover{color:#DE2831}
 ::selection{background:#95BCDE;color:#222761}
 .mi{font-family:'Material Icons';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
 @keyframes idmsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -42,7 +42,7 @@ a:hover{color:#B74C43}
 <div style="position:absolute;top:100%;left:-16px;padding-top:8px;display:{{ n.menuDisplay }};z-index:20">
 <div style="width:340px;display:flex;flex-direction:column;gap:2px;padding:12px 12px;background:#FFFFFF;border:.5px solid #222761;border-radius:16px;box-shadow:0 12px 32px rgba(34,39,97,.18);animation:idmsIn .16s ease-out">
 <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="3">
-<a href="{{ it.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:20px;letter-spacing:.6px;color:#222761;text-decoration:none" style-hover="background:#F0F2F8;color:#B74C43">
+<a href="{{ it.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:20px;letter-spacing:.6px;color:#222761;text-decoration:none" style-hover="background:#F0F2F8;color:#DE2831">
 <span>{{ it.label }}</span>
 </a>
 </sc-for>
@@ -53,7 +53,7 @@ a:hover{color:#B74C43}
 </nav>
 
 <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-<a href="login.html" style="display:inline-flex;align-items:center;text-decoration:none;padding:9px 20px;border:2px solid #B74C43;border-radius:999px;background:#B74C43;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:19px;letter-spacing:.4px;cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#B74C43;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">Sign In / Sign Up</a>
+<a href="login.html" style="display:inline-flex;align-items:center;text-decoration:none;padding:9px 20px;border:2px solid #DE2831;border-radius:999px;background:#DE2831;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:19px;letter-spacing:.4px;cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#DE2831;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">Sign In / Sign Up</a>
 <button type="button" onClick="{{ toggleMobileNav }}" style="display:{{ burgerDisplay }};align-items:center;justify-content:center;width:46px;height:46px;border:1px solid rgba(34,39,97,.2);border-radius:12px;background:#fff;cursor:pointer;color:#222761" style-hover="background:#F0F2F8" style-focus="outline:3px solid #95BCDE;outline-offset:2px" aria-label="Menu">
 <span class="mi" style="font-size:26px">{{ burgerIcon }}</span>
 </button>
@@ -69,7 +69,7 @@ a:hover{color:#B74C43}
 </button>
 <div style="display:{{ n.mobilePanel }};flex-direction:column;gap:6px;padding-top:10px;animation:idmsIn .18s ease-out">
 <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="3">
-<a href="{{ it.href }}" style="font-size:21px;color:#222761;text-decoration:none;padding:4px 0" style-hover="color:#B74C43">{{ it.label }}</a>
+<a href="{{ it.href }}" style="font-size:21px;color:#222761;text-decoration:none;padding:4px 0" style-hover="color:#DE2831">{{ it.label }}</a>
 </sc-for>
 </div>
 </div>
@@ -92,7 +92,7 @@ a:hover{color:#B74C43}
 <span style="width:clamp(44px,5vw,56px);height:clamp(44px,5vw,56px);border-radius:14px;background:#222761;display:flex;align-items:center;justify-content:center"><span class="mi" style="font-size:clamp(24px,2.6vw,30px);color:#FFFFFF">place</span></span>
 <span style="font-family: Inter; font-weight: 700; font-size: clamp(20px,2.2vw,24px); color: #222761">Physical Address</span>
 <span style="font-size:clamp(19px,2vw,22px);line-height:1.35;color:#444">Mississippi Department of Public Safety<br>1900 E Woodrow Wilson Ave,<br>Jackson, Mississippi 39216</span>
-<a href="https://goo.gl/maps/y1DVk3mqPN5pWrYw8" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;font-size:clamp(19px,2vw,22px);font-weight:600;color:#437CB7;align-self:flex-start;border-bottom:2px solid transparent;transition:color .18s,border-color .18s" style-hover="color:#B74C43;border-color:#B74C43">
+<a href="https://goo.gl/maps/y1DVk3mqPN5pWrYw8" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;font-size:clamp(19px,2vw,22px);font-weight:600;color:#437CB7;align-self:flex-start;border-bottom:2px solid transparent;transition:color .18s,border-color .18s" style-hover="color:#DE2831;border-color:#DE2831">
 <span class="mi" style="font-size:22px">map</span><span>Map and Directions</span>
 </a>
 </div>
@@ -102,7 +102,7 @@ a:hover{color:#B74C43}
 <span style="font-family: Inter; font-weight: 700; font-size: clamp(20px,2.2vw,24px); color: #222761">Mailing Address</span>
 <span style="font-size:clamp(19px,2vw,22px);line-height:1.35;color:#444">Mississippi Department of Public Safety<br>Post Office Box 958,<br>Jackson, Mississippi 39205</span>
 </div><div style="display:flex;flex-direction:column;gap:clamp(12px,1.6vw,18px);padding:clamp(20px,2.6vw,32px);border-radius:16px;background:#222761;border:1px solid #222761;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(34,39,97,.28)">
-<span style="width:clamp(44px,5vw,56px);height:clamp(44px,5vw,56px);border-radius:14px;background:#B74C43;display:flex;align-items:center;justify-content:center"><span class="mi" style="font-size:clamp(24px,2.6vw,30px);color:#FFFFFF">headset_mic</span></span>
+<span style="width:clamp(44px,5vw,56px);height:clamp(44px,5vw,56px);border-radius:14px;background:#DE2831;display:flex;align-items:center;justify-content:center"><span class="mi" style="font-size:clamp(24px,2.6vw,30px);color:#FFFFFF">headset_mic</span></span>
 <span style="font-family: inter; font-weight: 700; font-size: clamp(20px,2.2vw,24px); color: #FFFFFF">Live Support</span>
 <a href="tel:6014877028" style="font-family: inter; font-weight: 700; font-size: clamp(23px,3vw,32px); letter-spacing: .5px; color: #FFFFFF; align-self: flex-start; border-bottom: 2px solid transparent; transition: color .18s,border-color .18s" style-hover="color:#95BCDE;border-color:#95BCDE">(601) 487-7028</a>
 <span style="font-size:clamp(19px,2vw,22px);color:rgba(255,255,255,.82)">Mon - Fri, 8:00 AM- 5:00 PM</span>
@@ -167,14 +167,14 @@ class Component extends DCLogic {
       navItems: NAV.map((n, i) => ({
         label: n.label,
         items: n.items,
-        color: s.openNav === i ? "#B74C43" : "#222761",
-        underline: s.openNav === i ? "#B74C43" : "transparent",
+        color: s.openNav === i ? "#DE2831" : "#222761",
+        underline: s.openNav === i ? "#DE2831" : "transparent",
         menuDisplay: s.openNav === i ? "flex" : "none",
         onEnter: () => this.setState({ openNav: i }),
         onLeave: () => this.setState({ openNav: null }),
         onToggle: () => this.setState({ openNav: s.openNav === i ? null : i }),
         mobilePanel: s.openMobileNav === i ? "flex" : "none",
-        mobileColor: s.openMobileNav === i ? "#B74C43" : "#222761",
+        mobileColor: s.openMobileNav === i ? "#DE2831" : "#222761",
         mobileChevron: s.openMobileNav === i ? "rotate(180deg)" : "none",
         onMobileToggle: () => this.setState({ openMobileNav: s.openMobileNav === i ? null : i })
       })),

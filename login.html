@@ -15,7 +15,7 @@
 html,body{margin:0;padding:0;background:#F7F7F7}
 *{box-sizing:border-box}
 a{color:#437CB7;text-decoration:none}
-a:hover{color:#B74C43}
+a:hover{color:#DE2831}
 ::selection{background:#95BCDE;color:#222761}
 .mi{font-family:'Material Icons';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
 input::placeholder{color:#9aa0b4}
@@ -30,7 +30,7 @@ input::placeholder{color:#9aa0b4}
 <a href="index.html" style="display:flex;align-items:flex-end;gap:2px;flex-shrink:0" aria-label="iDriveMS home">
 <img src="assets/idrivems-wordmark.png" alt="iDriveMS" style="height:clamp(34px,4.6vw,48px);width:auto;display:block">
 </a>
-<a href="index.html" style="display: none; align-items: center; gap: 8px; font-size: 20px; color: #222761" style-hover="color:#B74C43">
+<a href="index.html" style="display: none; align-items: center; gap: 8px; font-size: 20px; color: #222761" style-hover="color:#DE2831">
 <span class="mi" style="font-size:22px">arrow_back</span><span>Back to iDriveMS</span>
 </a>
 </div>
@@ -54,7 +54,7 @@ input::placeholder{color:#9aa0b4}
 </div>
 
 <div style="display:{{ form.errorDisplay }};align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:#FBEDEC;border:1px solid #E8BFBB;animation:idmsShake .32s ease-out">
-<span class="mi" style="font-size:22px;color:#B74C43;flex-shrink:0">report_problem</span>
+<span class="mi" style="font-size:22px;color:#DE2831;flex-shrink:0">report_problem</span>
 <span style="font-size:21px;color:#9c3d35">{{ form.error }}</span>
 </div>
 
@@ -104,10 +104,10 @@ input::placeholder{color:#9aa0b4}
 </span>
 <span>Keep me signed in</span>
 </button>
-<button type="button" onClick="{{ goReset }}" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:clamp(19px,2.1vw,22px);font-weight:600;color:#437CB7" style-hover="color:#B74C43" style-focus="outline:3px solid #437CB7;outline-offset:3px">Forgot your password?</button>
+<button type="button" onClick="{{ goReset }}" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:clamp(19px,2.1vw,22px);font-weight:600;color:#437CB7" style-hover="color:#DE2831" style-focus="outline:3px solid #437CB7;outline-offset:3px">Forgot your password?</button>
 </div>
 
-<button type="button" onClick="{{ submit }}" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 26px;border:2px solid #B74C43;border-radius:999px;background:#B74C43;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(20px,2.2vw,22px);cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#B74C43;transform:translateY(-2px);box-shadow:0 6px 18px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">
+<button type="button" onClick="{{ submit }}" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 26px;border:2px solid #DE2831;border-radius:999px;background:#DE2831;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(20px,2.2vw,22px);cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#DE2831;transform:translateY(-2px);box-shadow:0 6px 18px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">
 <span>{{ form.cta }}</span><span class="mi" style="font-size:22px">{{ form.ctaIcon }}</span>
 </button>
 
@@ -190,8 +190,8 @@ class Component extends DCLogic {
 
     return {
       modes: [
-        { label: "Sign In", bg: s.mode === "signup" ? "transparent" : "#B74C43", color: s.mode === "signup" ? "#444444" : "#FFFFFF", onClick: () => this.setState({ mode: "signin", error: "", done: "" }) },
-        { label: "Create Account", bg: s.mode === "signup" ? "#B74C43" : "transparent", color: s.mode === "signup" ? "#FFFFFF" : "#444444", onClick: () => this.setState({ mode: "signup", error: "", done: "" }) }
+        { label: "Sign In", bg: s.mode === "signup" ? "transparent" : "#DE2831", color: s.mode === "signup" ? "#444444" : "#FFFFFF", onClick: () => this.setState({ mode: "signin", error: "", done: "" }) },
+        { label: "Create Account", bg: s.mode === "signup" ? "#DE2831" : "transparent", color: s.mode === "signup" ? "#FFFFFF" : "#444444", onClick: () => this.setState({ mode: "signup", error: "", done: "" }) }
       ],
       email: s.email, password: s.password, first: s.first, last: s.last,
       onEmail: (e) => this.setState({ email: e.target.value, error: "" }),
@@ -214,14 +214,14 @@ class Component extends DCLogic {
         nameDisplay: s.mode === "signup" ? "flex" : "none",
         passwordDisplay: s.mode === "reset" ? "none" : "flex",
         rowDisplay: s.mode === "signin" ? "flex" : "none",
-        emailBorder: s.error ? "#B74C43" : "#E4EAF4",
+        emailBorder: s.error ? "#DE2831" : "#E4EAF4",
         pwType: s.showPw ? "text" : "password",
         pwIcon: s.showPw ? "visibility_off" : "visibility",
         strengthDisplay: s.mode === "signup" && s.password ? "flex" : "none",
-        strengthBars: [0, 1, 2, 3].map(i => ({ bg: i < st ? (st >= 3 ? "#437CB7" : "#B74C43") : "#E4EAF4" })),
+        strengthBars: [0, 1, 2, 3].map(i => ({ bg: i < st ? (st >= 3 ? "#437CB7" : "#DE2831") : "#E4EAF4" })),
         strengthLabel: labels[st],
-        rememberBg: s.remember ? "#B74C43" : "#FFFFFF",
-        rememberBorder: s.remember ? "#B74C43" : "#E4EAF4",
+        rememberBg: s.remember ? "#DE2831" : "#FFFFFF",
+        rememberBorder: s.remember ? "#DE2831" : "#E4EAF4",
         rememberIcon: s.remember ? "check" : ""
       },
       footerDir: s.w < 700 ? "column" : "row",
