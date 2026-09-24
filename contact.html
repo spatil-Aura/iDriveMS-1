@@ -42,7 +42,7 @@ a:hover{color:#DE2831}
 <div style="position:absolute;top:100%;left:-16px;padding-top:8px;display:{{ n.menuDisplay }};z-index:20">
 <div style="width:340px;display:flex;flex-direction:column;gap:2px;padding:12px 12px;background:#FFFFFF;border:.5px solid #222761;border-radius:16px;box-shadow:0 12px 32px rgba(34,39,97,.18);animation:idmsIn .16s ease-out">
 <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="3">
-<a href="{{ it.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:20px;letter-spacing:.6px;color:#222761;text-decoration:none" style-hover="background:#F0F2F8;color:#DE2831">
+<a href="{{ it.href }}" target="{{ it.target }}" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:20px;letter-spacing:.6px;color:#222761;text-decoration:none" style-hover="background:#F0F2F8;color:#DE2831">
 <span>{{ it.label }}</span>
 </a>
 </sc-for>
@@ -69,7 +69,7 @@ a:hover{color:#DE2831}
 </button>
 <div style="display:{{ n.mobilePanel }};flex-direction:column;gap:6px;padding-top:10px;animation:idmsIn .18s ease-out">
 <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="3">
-<a href="{{ it.href }}" style="font-size:21px;color:#222761;text-decoration:none;padding:4px 0" style-hover="color:#DE2831">{{ it.label }}</a>
+<a href="{{ it.href }}" target="{{ it.target }}" rel="noopener" style="font-size:21px;color:#222761;text-decoration:none;padding:4px 0" style-hover="color:#DE2831">{{ it.label }}</a>
 </sc-for>
 </div>
 </div>
@@ -132,12 +132,12 @@ a:hover{color:#DE2831}
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const L = (label, href) => ({ label, href: href || "#top" });
+const L = (label, href) => ({ label, href: href || "#top", target: href && href.indexOf("http") === 0 ? "_blank" : "_self" });
 const NAV = [
-  { label: "Driver’s License & ID", items: [L("Renew Driver’s License"), L("Renew ID Card"), L("Replace Driver’s License or ID Card"), L("Change Address"), L("Driver’s License Manual")] },
-  { label: "Commercial Drivers", items: [L("Submit CDL Medical Card")] },
+  { label: "Driver’s License & ID", items: [L("Renew Driver’s License"), L("Renew ID Card"), L("Replace Driver’s License or ID Card"), L("Change Address"), L("Driver’s License Manual", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf")] },
+  { label: "Commercial Drivers", items: [L("Renew Commercial Driver License")] },
   { label: "Records & Fees", items: [L("Request Motor Vehicle Record"), L("Pay Reinstatement Fee")] },
-  { label: "Help & Resources", items: [L("Schedule an Appointment"), L("Contact Us", "contact.html"), L("Frequently Asked Questions"), L("Driver Service Bureau Website", "https://www.driverservicebureau.dps.ms.gov/"), L("MDOT Website", "https://mdot.ms.gov/")] }
+  { label: "Help & Resources", items: [L("Schedule an Appointment"), L("Contact Us", "contact.html"), L("Frequently Asked Questions", "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"), L("Driver Service Bureau Website", "https://www.driverservicebureau.dps.ms.gov/"), L("MDOT Website", "https://mdot.ms.gov/")] }
 ];
 
 class Component extends DCLogic {
@@ -207,7 +207,7 @@ class Component extends DCLogic {
       footerLinks: ([
         { label: "MDPS Home Page", href: "https://www.dps.ms.gov/" },
         { label: "MS Traffic", href: "https://www.mdottraffic.com/landing.aspx" },
-        { label: "Crash Reports", href: "https://www.ms.gov/dps/crash_reports" },
+        { label: "Crash Reports", href: "https://www.dps.ms.gov/crash-reports" },
         { label: "Contact Us", href: "https://www.ms.gov/dps/license_renewal/Contact" },
         { label: "Facebook", href: "https://www.facebook.com/MissDPS/#" },
         { label: "X", href: "https://x.com/#!/MissDPS" }
