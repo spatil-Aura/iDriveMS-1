@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reset Multi-Factor Verification | iDriveMS</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Afacad:ital,wght@0,400;0,500;0,600;0,700&amp;family=Material+Icons&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FFFFFF}
+*{box-sizing:border-box}
+a{color:#437CB7;text-decoration:none}
+a:hover{color:#DE2831}
+::selection{background:#95BCDE;color:#222761}
+.mi{font-family:'Material Icons';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
+</style>
+</helmet>
+<div style="font-family:Afacad,system-ui,sans-serif;color:#444;background:#FFFFFF;min-height:100vh;display:flex;flex-direction:column">
+
+<header style="background:#FFFFFF;box-shadow:0 1px 0 rgba(34,39,97,.10),0 2px 12px rgba(34,39,97,.05)">
+<div style="max-width:none;margin:0;padding:16px clamp(20px,2.4vw,32px);display:flex;align-items:center;gap:24px;justify-content:space-between">
+<a href="index.html" style="display:flex;align-items:flex-end;gap:2px;flex-shrink:0" aria-label="iDriveMS home">
+<img src="assets/idrivems-wordmark-2.png" alt="iDriveMS" style="height:clamp(34px,4.6vw,48px);width:auto;display:block">
+</a>
+</div>
+</header>
+
+<main style="flex:1;width:100%;max-width:1120px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(20px,4vw,40px) clamp(48px,6vw,80px);display:flex;flex-direction:column;gap:clamp(20px,3vw,32px)">
+
+<div style="display:flex;flex-direction:column;gap:16px;padding-bottom:16px;border-bottom:1px solid #D8DEEA">
+<h1 style="margin:0;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(26px,4vw,36px);letter-spacing:.3px;color:#222761">Reset Multi-Factor Verification</h1>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(21px,3vw,26px);color:#222761">Verify Identity</h2>
+<p style="margin:0;font-size:clamp(19px,2.1vw,22px);line-height:1.35;color:#333;text-wrap:pretty">Let’s first verify your identity. Select an option to continue.</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px;width:100%;max-width:620px">
+<sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+<a href="login.html" style="display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid #E4EAF4;border-radius:14px;background:#FFFFFF;box-shadow:0 2px 8px rgba(34,39,97,.10);text-decoration:none;transition:border-color .18s,transform .18s,box-shadow .18s" style-hover="border-color:#95BCDE;transform:translateY(-2px);box-shadow:0 8px 20px rgba(34,39,97,.14)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">
+<span style="width:48px;height:48px;border-radius:12px;background:#EAF1F8;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+<span class="mi" style="font-size:28px;color:#437CB7" aria-hidden="true">{{ o.icon }}</span>
+</span>
+<span style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(16px,1.8vw,18px);line-height:1.3;color:#222761;text-wrap:pretty">{{ o.label }}</span>
+</a>
+</sc-for>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:8px">
+<a href="index.html" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 28px;border:2px solid #437CB7;border-radius:999px;background:#FFFFFF;color:#437CB7;font-family:Afacad,sans-serif;font-weight:600;font-size:21px;cursor:pointer;transition:background .18s,color .18s,border-color .18s" style-hover="background:#F0F2F8;color:#DE2831;border-color:#DE2831" style-focus="outline:3px solid #95BCDE;outline-offset:2px">Back</a>
+</div>
+</main>
+
+<footer style="background:#222761">
+<div style="max-width:1320px;margin:0 auto;padding:36px clamp(20px,4vw,40px);display:flex;flex-direction:{{ footerDir }};flex-wrap:wrap;align-items:{{ footerAlign }};gap:{{ footerGap }}">
+<div style="width:96px;height:76px;border-radius:14px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+<img src="assets/ms-mark.png" alt="iDriveMS" style="width:88px;height:auto">
+</div>
+<div style="flex: {{ footerLinksFlex }}; display: flex; flex-direction: {{ footerLinksDir }}; flex-wrap: {{ footerWrap }}; gap: {{ footerLinksGap }}; align-items: {{ footerLinksAlign }}; justify-content: {{ footerJustify }}">
+<sc-for list="{{ footerLinks }}" as="f" hint-placeholder-count="7">
+<a href="{{ f.href }}" target="{{ f.target }}" rel="noopener" style="font-size:clamp(16px,1.35vw,20px);white-space:nowrap;letter-spacing:.3px;color:#FFFFFF;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .18s,color .18s" style-hover="color:#95BCDE;border-color:#95BCDE">{{ f.label }}</a>
+</sc-for>
+</div>
+<img src="assets/ms-seal.png" alt="State of Mississippi" style="width:clamp(104px,9vw,132px);height:auto;flex-shrink:0">
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.14)">
+<div style="max-width:1320px;margin:0 auto;padding:18px clamp(20px,4vw,40px);font-size:17px;color:rgba(255,255,255,.6)">Mississippi Department of Public Safety · Driver Service Bureau</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  state = { w: 1200 };
+
+  componentDidMount() {
+    this._r = () => this.setState({ w: window.innerWidth });
+    this._r();
+    window.addEventListener("resize", this._r);
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this._r); }
+
+  renderVals() {
+    const s = this.state;
+    return {
+      options: [
+        { icon: "badge", label: "Use my Mississippi Driver License" },
+        { icon: "contact_page", label: "Use my Mississippi ID Card" },
+        { icon: "help_outline", label: "I don’t know my Mississippi Driver License/ID Card Information" },
+        { icon: "smartphone", label: "Use my Mobile Driver License (mDL)" }
+      ],
+      footerDir: s.w < 700 ? "column" : "row",
+      footerAlign: s.w < 700 ? "flex-start" : "center",
+      footerGap: s.w < 700 ? "20px" : "clamp(20px,2.6vw,36px)",
+      footerWrap: s.w < 1000 ? "wrap" : "nowrap",
+      footerJustify: s.w < 1000 ? "flex-start" : "space-evenly",
+      footerLinksDir: s.w < 700 ? "column" : "row",
+      footerLinksFlex: s.w < 700 ? "0 1 auto" : "1 1 320px",
+      footerLinksAlign: s.w < 700 ? "flex-start" : "center",
+      footerLinksGap: s.w < 700 ? "12px" : "12px clamp(12px,2vw,32px)",
+      footerLinks: [
+        { label: "MDPS Home Page", href: "https://www.dps.ms.gov/", target: "_blank" },
+        { label: "MS Traffic", href: "https://www.mdottraffic.com/landing.aspx", target: "_blank" },
+        { label: "Crash Reports", href: "https://www.ms.gov/dps/crash_reports", target: "_blank" },
+        { label: "Transparency MS", href: "https://www.transparency.ms.gov/", target: "_blank" },
+        { label: "Contact Us", href: "contact.html", target: "_self" },
+        { label: "Facebook", href: "https://www.facebook.com/MissDPS/#", target: "_blank" },
+        { label: "X", href: "https://x.com/#!/MissDPS", target: "_blank" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
