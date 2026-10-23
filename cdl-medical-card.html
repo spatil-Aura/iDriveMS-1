@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Afacad:ital,wght@0,400;0,500;0,600;0,700&amp;family=Material+Icons&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:#F7F7F7}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+a{color:#437CB7;text-decoration:none}
+a:hover{color:#DE2831}
+::selection{background:#95BCDE;color:#222761}
+.mi{font-family:'Material Icons';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
+@keyframes idmsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div style="font-family:Afacad,system-ui,sans-serif;color:#444;background:#F7F7F7;min-height:100vh;overflow-x:hidden">
+
+<div style="height:{{ headerH }}"></div>
+<header ref="{{ headerRef }}" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 1px 0 rgba(34,39,97,.10),0 2px 12px rgba(34,39,97,.05)">
+<div style="max-width:1320px;margin:0 auto;padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;gap:24px;justify-content:space-between">
+<a href="index.html" style="display:flex;align-items:flex-end;gap:2px;flex-shrink:0;text-decoration:none" aria-label="iDriveMS home">
+<img src="assets/idrivems-wordmark-2.png" alt="iDriveMS" style="height:clamp(34px,4.6vw,48px);width:auto;display:block">
+</a>
+
+<nav style="display:{{ navDisplay }};align-items:center;gap:clamp(8px,2vw,28px)">
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<div style="position:relative" onMouseEnter="{{ n.onEnter }}" onMouseLeave="{{ n.onLeave }}">
+<button type="button" onClick="{{ n.onToggle }}" style="display:flex;align-items:center;gap:4px;background:none;border:0;cursor:pointer;padding:10px 6px;font-family:Afacad,sans-serif;font-size:20px;letter-spacing:.4px;border-bottom:3px solid {{ n.underline }};color:{{ n.color }}" style-focus="outline:3px solid #95BCDE;outline-offset:2px;border-radius:4px">
+<span>{{ n.label }}</span>
+<span class="mi" style="font-size:20px;color:#95BCDE">expand_more</span>
+</button>
+<div style="position:absolute;top:100%;left:-16px;padding-top:8px;display:{{ n.menuDisplay }};z-index:20">
+<div style="width:340px;display:flex;flex-direction:column;gap:2px;padding:12px 12px;background:#FFFFFF;border:.5px solid #222761;border-radius:16px;box-shadow:0 12px 32px rgba(34,39,97,.18);animation:idmsIn .16s ease-out">
+<sc-for list="{{ n.items }}" as="it" hint-placeholder-count="3">
+<a href="{{ it.href }}" target="{{ it.target }}" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:20px;letter-spacing:.6px;color:#222761;text-decoration:none" style-hover="background:#F0F2F8;color:#DE2831">
+<span>{{ it.label }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-for>
+</nav>
+
+<div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+<a href="login.html" style="display:inline-flex;align-items:center;text-decoration:none;padding:9px 20px;border:2px solid #DE2831;border-radius:999px;background:#DE2831;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:19px;letter-spacing:.4px;cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#DE2831;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">Sign In / Sign Up</a>
+<button type="button" onClick="{{ toggleMobileNav }}" style="display:{{ burgerDisplay }};align-items:center;justify-content:center;width:46px;height:46px;border:1px solid rgba(34,39,97,.2);border-radius:12px;background:#fff;cursor:pointer;color:#222761" style-hover="background:#F0F2F8" style-focus="outline:3px solid #95BCDE;outline-offset:2px" aria-label="Menu">
+<span class="mi" style="font-size:26px">{{ burgerIcon }}</span>
+</button>
+</div>
+</div>
+
+<div style="display:{{ mobileNavDisplay }};position:absolute;top:100%;left:0;right:0;z-index:70;max-height:calc(100vh - 100%);overflow:auto;flex-direction:column;padding:4px clamp(16px,4vw,40px) 20px;background:#FFFFFF;border-top:1px solid rgba(34,39,97,.08);box-shadow:0 18px 40px rgba(34,39,97,.18);animation:idmsIn .18s ease-out">
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<div style="padding:14px 0;border-bottom:1px solid rgba(34,39,97,.08)">
+<button type="button" onClick="{{ n.onMobileToggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0;border:0;background:none;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:.6px;text-transform:uppercase;color:{{ n.mobileColor }};transition:color .18s" style-focus="outline:3px solid #95BCDE;outline-offset:2px">
+<span>{{ n.label }}</span>
+<span class="mi" style="font-size:24px;color:#95BCDE;transform:{{ n.mobileChevron }};transition:transform .22s ease">expand_more</span>
+</button>
+<div style="display:{{ n.mobilePanel }};flex-direction:column;gap:6px;padding-top:10px;animation:idmsIn .18s ease-out">
+<sc-for list="{{ n.items }}" as="it" hint-placeholder-count="3">
+<a href="{{ it.href }}" target="{{ it.target }}" rel="noopener" style="font-size:21px;color:#222761;text-decoration:none;padding:4px 0" style-hover="color:#DE2831">{{ it.label }}</a>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</header>
+
+<section style="position:relative;overflow:hidden;background-color:#222761">
+<div style="position:absolute;inset:-24px;background-image:url('assets/contact-hero.png');background-size:cover;background-position:center;filter:blur(3px);pointer-events:none"></div>
+<div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(20px,4vw,40px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px">
+<span style="font-family:Inter,sans-serif;font-weight:900;font-size:clamp(34px,6vw,48px);line-height:1.05;letter-spacing:1px;color:#FFFFFF">CDL Medical Card Submission</span>
+
+</div>
+</section>
+
+<section style="background:#FFFFFF">
+<div style="max-width:960px;margin:0 auto;padding:clamp(44px,6vw,72px) clamp(20px,4vw,40px)">
+<div style="display:flex;flex-direction:column;gap:clamp(18px,2.4vw,26px);padding:clamp(24px,3.4vw,44px);border-radius:16px;border:1px solid #EEF1F5;background-color:#F4F6FA">
+<span style="width:clamp(44px,5vw,56px);height:clamp(44px,5vw,56px);border-radius:14px;background:#DE2831;display:flex;align-items:center;justify-content:center"><span class="mi" style="font-size:clamp(24px,2.6vw,30px);color:#FFFFFF" aria-hidden="true">report_problem</span></span>
+<p style="font-size:clamp(19px,2.2vw,24px);line-height:1.4;color:#444;text-wrap:pretty;margin:0">As of June 23, 2025, federal mandates will prevent Mississippi from accepting physical or scanned copies of Medical Certificate forms (MCSA-5876). On June 13, 2025, this CDL Medical Card Submission functionality will be retired. Our DL station examiners will not be able to accept a paper copy after June 20th, 2025.</p>
+<p style="font-size:clamp(19px,2.2vw,24px);line-height:1.4;color:#444;text-wrap:pretty;margin:0">Going forward, your federally certified Medical Examiner is required to submit the results of your physical exam electronically to FMCSA’s National Registry. Mississippi in turn must obtain the results of this physical exam electronically from the Registry and post it directly to your driver record.</p>
+<p style="font-size:clamp(19px,2.2vw,24px);line-height:1.4;color:#444;text-wrap:pretty;margin:0">Your Medical Examiner is required to submit the results of your physical exam directly to the Registry within 48 hours. Please ensure that sufficient time has passed before attempting to obtain a credential because, if these results have not been loaded yet, Mississippi will be required to reject your request at that time.</p>
+<p style="font-size:clamp(19px,2.2vw,24px);line-height:1.4;color:#444;text-wrap:pretty;margin:0">For more information about these requirements, please log onto the FMCSA’s National Registry <a href="https://nationalregistry.fmcsa.dot.gov/home" target="_blank" rel="noopener" style="font-weight:600;color:#437CB7;border-bottom:2px solid transparent;transition:color .18s,border-color .18s;word-break:break-word" style-hover="color:#DE2831;border-color:#DE2831">website</a>.</p>
+</div>
+</div>
+</section>
+
+<footer style="background:#222761">
+<div style="max-width:1320px;margin:0 auto;padding:36px clamp(20px,4vw,40px);display:flex;flex-direction:{{ footerDir }};flex-wrap:wrap;align-items:{{ footerAlign }};gap:{{ footerGap }}">
+<div style="width:96px;height:76px;border-radius:14px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+<img src="assets/ms-mark.png" alt="iDriveMS" style="width:88px;height:auto">
+</div>
+<div style="flex:{{ footerLinksFlex }};display:flex;flex-direction:{{ footerLinksDir }};flex-wrap:{{ footerWrap }};gap:{{ footerLinksGap }};align-items:{{ footerLinksAlign }};justify-content:{{ footerJustify }}">
+<sc-for list="{{ footerLinks }}" as="f" hint-placeholder-count="6">
+<a href="{{ f.href }}" target="{{ f.target }}" rel="noopener" style="font-size:clamp(16px,1.35vw,20px);white-space:nowrap;letter-spacing:.3px;color:#FFFFFF;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .18s,color .18s" style-hover="color:#95BCDE;border-color:#95BCDE">{{ f.label }}</a>
+</sc-for>
+</div>
+<img src="assets/ms-seal.png" alt="State of Mississippi" style="width:clamp(104px,9vw,132px);height:auto;flex-shrink:0">
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.14)">
+<div style="max-width:1320px;margin:0 auto;padding:18px clamp(20px,4vw,40px);font-size:17px;color:rgba(255,255,255,.6)">Mississippi Department of Public Safety · Driver Service Bureau</div>
+</div>
+</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const L = (label, href) => ({ label, href: href || "login.html", target: href && href.indexOf("http") === 0 ? "_blank" : "_self" });
+const NAV = [
+  { label: "Driver’s License & ID", items: [L("Renew Driver’s License"), L("Renew ID Card"), L("Replace Driver’s License or ID Card"), L("Mobile Wallet", "login.html"), L("Driver’s License Manual", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf")] },
+  { label: "Commercial Drivers", items: [L("CDL Medical Status Verification"), L("CDL Medical Card Submission", "cdl-medical-card.html"), L("CDL Services", "https://www.driverservicebureau.dps.ms.gov/")] },
+  { label: "Records & Fees", items: [L("Request Motor Vehicle Record"), L("Pay Reinstatement Fee"), L("Change Address")] },
+  { label: "Resources", items: [L("Schedule an Appointment"), L("Contact Us", "contact.html"), L("Register to Vote", "https://www.sos.ms.gov/elections-voting/voter-registration-information"), L("Frequently Asked Questions", "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"), L("Driver Service Bureau Website", "https://www.driverservicebureau.dps.ms.gov/"), L("MDOT Website", "https://mdot.ms.gov/")] },
+  { label: "Activation", items: [L("DSB Invitation Code", "invitation-code.html"), L("Reset Multi-Factor Verification", "reset-mfa.html"), L("Recover Username", "recover-username.html")] }
+];
+
+class Component extends DCLogic {
+  _header = React.createRef();
+  state = { w: 1200, headerH: 84, openNav: null, mobileNav: false, openMobileNav: null };
+  componentDidMount() {
+    this._r = () => {
+      const h = this._header.current ? this._header.current.offsetHeight : 0;
+      this.setState({ w: window.innerWidth, headerH: h });
+    };
+    this._r();
+    this._hTimer = setInterval(this._r, 500);
+    window.addEventListener("resize", this._r);
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this._r); clearInterval(this._hTimer); }
+  renderVals() {
+    const s = this.state;
+    const narrow = s.w < 1000;
+    return {
+      headerRef: this._header,
+      headerH: (s.headerH || 84) + "px",
+      navDisplay: narrow ? "none" : "flex",
+      burgerDisplay: narrow ? "inline-flex" : "none",
+      burgerIcon: s.mobileNav ? "close" : "menu",
+      mobileNavDisplay: narrow && s.mobileNav ? "flex" : "none",
+      toggleMobileNav: () => this.setState({ mobileNav: !s.mobileNav }),
+      navItems: NAV.map((n, i) => ({
+        label: n.label,
+        items: n.items,
+        color: s.openNav === i ? "#DE2831" : "#222761",
+        underline: s.openNav === i ? "#DE2831" : "transparent",
+        menuDisplay: s.openNav === i ? "flex" : "none",
+        onEnter: () => this.setState({ openNav: i }),
+        onLeave: () => this.setState({ openNav: null }),
+        onToggle: () => this.setState({ openNav: s.openNav === i ? null : i }),
+        mobilePanel: s.openMobileNav === i ? "flex" : "none",
+        mobileColor: s.openMobileNav === i ? "#DE2831" : "#222761",
+        mobileChevron: s.openMobileNav === i ? "rotate(180deg)" : "none",
+        onMobileToggle: () => this.setState({ openMobileNav: s.openMobileNav === i ? null : i })
+      })),
+      footerDir: s.w < 700 ? "column" : "row",
+      footerAlign: s.w < 700 ? "flex-start" : "center",
+      footerGap: s.w < 700 ? "20px" : "clamp(20px,2.6vw,36px)",
+      footerWrap: s.w < 1000 ? "wrap" : "nowrap",
+      footerJustify: s.w < 1000 ? "flex-start" : "space-evenly",
+      footerLinksDir: s.w < 700 ? "column" : "row",
+      footerLinksFlex: s.w < 700 ? "0 1 auto" : "1 1 320px",
+      footerLinksAlign: s.w < 700 ? "flex-start" : "center",
+      footerLinksGap: s.w < 700 ? "12px" : "12px clamp(12px,2vw,32px)",
+      groups: [
+        { title: "Department of Public Safety", links: [
+          { label: "MDPS Home Page", href: "https://www.dps.ms.gov/", icon: "open_in_new" },
+          { label: "Driver Service Bureau Website", href: "http://www.driverservicebureau.dps.ms.gov/", icon: "open_in_new" },
+          { label: "MS Traffic", href: "http://www.mdottraffic.com/landing.aspx", icon: "open_in_new" },
+          { label: "Crash Reports", href: "https://www.ms.gov/dps/crash_reports", icon: "open_in_new" }
+        ]},
+        { title: "Help and Support", links: [
+          { label: "Contact Us", href: "https://www.ms.gov/dps/license_renewal/Contact", icon: "open_in_new" },
+          { label: "Frequently Asked Questions", href: "https://www.ms.gov/dps/license_renewal/FAQ", icon: "open_in_new" },
+          { label: "MS.Gov Help Portal", href: "https://www.ms.gov/msi/help_portal", icon: "open_in_new" }
+        ]},
+        { title: "Follow us on", links: [
+          { label: "Facebook", href: "https://www.facebook.com/pages/Mississippi-Department-of-Public-Safety/304578926245825", icon: "open_in_new" },
+          { label: "Twitter", href: "https://twitter.com/#!/MissDPS", icon: "open_in_new" }
+        ]}
+      ],
+      footerLinks: ([
+        { label: "MDPS Home Page", href: "https://www.dps.ms.gov/" },
+        { label: "MS Traffic", href: "https://www.mdottraffic.com/landing.aspx" },
+        { label: "Crash Reports", href: "https://www.ms.gov/dps/crash_reports" },
+        { label: "Transparency MS", href: "https://www.transparency.ms.gov/" },
+        { label: "Contact Us", href: "https://www.ms.gov/dps/license_renewal/Contact" },
+        { label: "Facebook", href: "https://www.facebook.com/MissDPS/#" },
+        { label: "X", href: "https://x.com/#!/MissDPS" }
+      ]).map(l => Object.assign({}, l, { target: l.sameTab ? "_self" : "_blank" }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

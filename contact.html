@@ -135,7 +135,7 @@ a:hover{color:#DE2831}
 const L = (label, href) => ({ label, href: href || "login.html", target: href && href.indexOf("http") === 0 ? "_blank" : "_self" });
 const NAV = [
   { label: "Driver’s License & ID", items: [L("Renew Driver’s License"), L("Renew ID Card"), L("Replace Driver’s License or ID Card"), L("Mobile Wallet", "login.html"), L("Driver’s License Manual", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf")] },
-  { label: "Commercial Drivers", items: [L("Renew Commercial Driver License")] },
+  { label: "Commercial Drivers", items: [L("CDL Medical Status Verification"), L("CDL Medical Card Submission", "cdl-medical-card.html"), L("CDL Services", "https://www.driverservicebureau.dps.ms.gov/")] },
   { label: "Records & Fees", items: [L("Request Motor Vehicle Record"), L("Pay Reinstatement Fee"), L("Change Address")] },
   { label: "Resources", items: [L("Schedule an Appointment"), L("Contact Us", "contact.html"), L("Register to Vote", "https://www.sos.ms.gov/elections-voting/voter-registration-information"), L("Frequently Asked Questions", "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"), L("Driver Service Bureau Website", "https://www.driverservicebureau.dps.ms.gov/"), L("MDOT Website", "https://mdot.ms.gov/")] },
   { label: "Activation", items: [L("DSB Invitation Code", "invitation-code.html"), L("Reset Multi-Factor Verification", "reset-mfa.html"), L("Recover Username", "recover-username.html")] }
