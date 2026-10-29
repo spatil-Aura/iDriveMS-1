@@ -40,7 +40,7 @@ input::placeholder{color:#9aa0b4}
 
 <section style="position:relative;flex:1 1 560px;display:flex;align-items:center;justify-content:center;padding:clamp(20px,2.4vw,32px) clamp(16px,2.4vw,32px);background:#F7F7F7 url('assets/login-bg.jpg') center / cover no-repeat">
 <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(247, 247, 247, 0.06) 0%, rgba(247, 247, 247, 0.14) 100%); backdrop-filter: blur(4px);"></span>
-<div style="width:100%;max-width:720px;background:#FFFFFF;border:1px solid #EEF1F5;border-radius:24px;padding:clamp(20px,3.4vw,52px) clamp(20px,4vw,64px);box-shadow:0 18px 50px rgba(6,8,28,.20);position:relative;z-index:1;display:flex;flex-direction:column;gap:24px">
+<div style="width:100%;max-width:720px;background:#FFFFFF;border:1px solid #EEF1F5;border-radius:24px;padding:clamp(20px,3.4vw,52px) clamp(20px,4vw,64px);box-shadow:0 18px 50px rgba(6,8,28,.20);position:relative;z-index:1;display:flex;flex-direction:column;gap:24px;text-align:center">
 
 <div style="display:flex;gap:4px;padding:4px;background:#E8BFBB;border-radius:24px">
 <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
@@ -56,6 +56,18 @@ input::placeholder{color:#9aa0b4}
 <div style="display:{{ form.errorDisplay }};align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:#FBEDEC;border:1px solid #E8BFBB;animation:idmsShake .32s ease-out">
 <span class="mi" style="font-size:22px;color:#DE2831;flex-shrink:0">report_problem</span>
 <span style="font-size:21px;color:#9c3d35">{{ form.error }}</span>
+</div>
+
+<div style="display:{{ form.socialDisplay }};flex-direction:column;gap:20px">
+<span style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,22px);color:#222761">Sign in with a Social Account</span>
+<button type="button" onClick="{{ googleSignIn }}" style="display:inline-flex;align-items:center;gap:14px;align-self:center;width:fit-content;padding:10px 28px 10px 20px;border:2px solid #E4EAF4;border-radius:999px;background:#FFFFFF;cursor:pointer;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(19px,2.1vw,22px);color:#222761;transition:background .18s,border-color .18s" style-hover="background:#F0F2F8;border-color:#95BCDE" style-focus="outline:3px solid #437CB7;outline-offset:2px">
+<svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+<span>Google</span>
+</button>
+<div style="display:flex;align-items:center;align-self:stretch;gap:16px;color:#686969;font-size:19px">
+<span style="flex:1;height:1px;background:#E4EAF4"></span><span>or</span><span style="flex:1;height:1px;background:#E4EAF4"></span>
+</div>
+<span style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,22px);color:#222761">Sign in with Email</span>
 </div>
 
 <div style="display:{{ form.nameDisplay }};gap:14px">
@@ -114,6 +126,12 @@ input::placeholder{color:#9aa0b4}
 <div style="display:{{ form.doneDisplay }};align-items:center;gap:12px;padding:14px 16px;border-radius:12px;background:#EAF1F8;border:1px solid #D5E3F1;animation:idmsIn .2s ease-out">
 <span class="mi" style="font-size:24px;color:#437CB7;flex-shrink:0">check_circle</span>
 <span style="font-size:21px;color:#222761;text-wrap:pretty">{{ form.done }}</span>
+</div>
+
+<div style="display:{{ form.socialDisplay }};flex-direction:column;gap:14px;font-size:clamp(19px,2.1vw,22px);line-height:1.35;color:#333">
+<span>New iDriveMS user? <button type="button" onClick="{{ goSignup }}" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:inherit;font-weight:600;color:#437CB7;text-decoration:underline" style-hover="color:#222761" style-focus="outline:3px solid #437CB7;outline-offset:3px">Activate an account.</button></span>
+<span>Forgot which sign-in method you used? <a href="recover-username.html" style="font-weight:600;color:#437CB7;text-decoration:underline" style-hover="color:#222761">Recover your Username.</a></span>
+<span>Are you an Organization trying to create an account for the first time? <button type="button" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:inherit;font-weight:600;color:#437CB7;text-decoration:underline" style-hover="color:#222761" style-focus="outline:3px solid #437CB7;outline-offset:3px">Learn More.</button></span>
 </div>
 
 <span style="font-size:19px;line-height:1.35;color:#4a4d5c;text-align:center;text-wrap:pretty">By continuing you agree to the Mississippi Department of Public Safety terms of use and privacy notice.</span>
@@ -201,6 +219,8 @@ class Component extends DCLogic {
       togglePw: () => this.setState({ showPw: !s.showPw }),
       toggleRemember: () => this.setState({ remember: !s.remember }),
       goReset: () => this.setState({ mode: "reset", error: "", done: "" }),
+      goSignup: () => this.setState({ mode: "signup", error: "", done: "" }),
+      googleSignIn: () => this.setState({ error: "", done: "Signed in with Google. Taking you to My Account…" }),
       submit: () => this.submit(),
       form: {
         heading: copy.heading,
@@ -212,6 +232,7 @@ class Component extends DCLogic {
         done: s.done,
         doneDisplay: s.done ? "flex" : "none",
         nameDisplay: s.mode === "signup" ? "flex" : "none",
+        socialDisplay: s.mode === "signin" ? "flex" : "none",
         passwordDisplay: s.mode === "reset" ? "none" : "flex",
         rowDisplay: s.mode === "signin" ? "flex" : "none",
         emailBorder: s.error ? "#DE2831" : "#E4EAF4",
