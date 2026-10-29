@@ -38,8 +38,7 @@ input::placeholder{color:#9aa0b4}
 
 <main style="flex:1;display:flex;flex-wrap:wrap;align-items:stretch">
 
-<section style="position:relative;flex:1 1 560px;display:flex;align-items:center;justify-content:center;padding:clamp(20px,2.4vw,32px) clamp(16px,2.4vw,32px);background:#F7F7F7 url('assets/login-bg.jpg') center / cover no-repeat">
-<span style="position: absolute; inset: 0px; background: linear-gradient(rgba(247, 247, 247, 0.06) 0%, rgba(247, 247, 247, 0.14) 100%); backdrop-filter: blur(4px);"></span>
+<section style="position:relative;flex:1 1 560px;display:flex;align-items:center;justify-content:center;padding:clamp(20px,2.4vw,32px) clamp(16px,2.4vw,32px);background:linear-gradient(160deg,#437CB7 0%,#6A9CCB 50%,#95BCDE 100%)">
 <div style="width:100%;max-width:720px;background:#FFFFFF;border:1px solid #EEF1F5;border-radius:24px;padding:clamp(20px,3.4vw,52px) clamp(20px,4vw,64px);box-shadow:0 18px 50px rgba(6,8,28,.20);position:relative;z-index:1;display:flex;flex-direction:column;gap:24px;text-align:center">
 
 <div style="display:flex;gap:4px;padding:4px;background:#E8BFBB;border-radius:24px">
@@ -50,7 +49,7 @@ input::placeholder{color:#9aa0b4}
 
 <div style="display:flex;flex-direction:column;gap:8px">
 <span style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(21px,3vw,30px);letter-spacing:.3px;color:#222761">{{ form.heading }}</span>
-<span style="font-size:clamp(19px,2.1vw,22px);line-height:1.3;color:#4a4d5c;text-wrap:pretty">{{ form.sub }}</span>
+<span style="display:{{ form.subDisplay }};font-size:clamp(19px,2.1vw,22px);line-height:1.3;color:#4a4d5c;text-wrap:pretty;justify-content:center">{{ form.sub }}</span>
 </div>
 
 <div style="display:{{ form.errorDisplay }};align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:#FBEDEC;border:1px solid #E8BFBB;animation:idmsShake .32s ease-out">
@@ -81,7 +80,7 @@ input::placeholder{color:#9aa0b4}
 </label>
 </div>
 
-<label style="display:flex;flex-direction:column;gap:8px">
+<label style="display:{{ form.emailDisplay }};flex-direction:column;gap:8px">
 <span style="font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#222761">Email address</span>
 <div style="display:flex;align-items:center;gap:10px;padding:0 16px;border:2px solid {{ form.emailBorder }};border-radius:12px;background:#FFFFFF;transition:border-color .18s" style-focus-within="border-color:#437CB7">
 <span class="mi" style="font-size:22px;color:#95BCDE">mail_outline</span>
@@ -119,7 +118,21 @@ input::placeholder{color:#9aa0b4}
 <button type="button" onClick="{{ goReset }}" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:clamp(19px,2.1vw,22px);font-weight:600;color:#437CB7" style-hover="color:#DE2831" style-focus="outline:3px solid #437CB7;outline-offset:3px">Forgot your password?</button>
 </div>
 
-<button type="button" onClick="{{ submit }}" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 26px;border:2px solid #DE2831;border-radius:999px;background:#DE2831;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(20px,2.2vw,22px);cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#DE2831;transform:translateY(-2px);box-shadow:0 6px 18px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">
+<div style="display:{{ form.activateDisplay }};flex-direction:column;align-items:center;gap:20px">
+<span style="font-size:clamp(19px,2.1vw,22px);line-height:1.35;color:#333">If you already have an iDriveMS account, you may <button type="button" onClick="{{ goSignin }}" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:inherit;font-weight:600;color:#437CB7;text-decoration:underline" style-hover="color:#222761" style-focus="outline:3px solid #437CB7;outline-offset:3px">sign in.</button></span>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;background:#FFF6ED;border:1px solid #FDBA74;text-align:left">
+<span class="mi" style="font-size:24px;color:#F97316;flex-shrink:0" aria-hidden="true">report_problem</span>
+<span style="font-size:clamp(19px,2.1vw,21px);line-height:1.3;color:#B54708"><strong>Note:</strong> Choose your activation method carefully. You must sign in with the same method each time.</span>
+</div>
+<button type="button" onClick="{{ activateEmail }}" style="display:flex;align-items:center;justify-content:center;gap:10px;align-self:stretch;padding:13px 26px;border:2px solid #DE2831;border-radius:999px;background:#DE2831;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(20px,2.2vw,22px);cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#DE2831;transform:translateY(-2px);box-shadow:0 6px 18px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">Activate with Email</button>
+<button type="button" onClick="{{ activateGoogle }}" style="display:flex;align-items:center;justify-content:center;gap:14px;align-self:stretch;padding:11px 20px;border:2px solid #E4EAF4;border-radius:999px;background:#FFFFFF;cursor:pointer;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(19px,2.1vw,22px);color:#222761;transition:background .18s,border-color .18s" style-hover="background:#F0F2F8;border-color:#95BCDE" style-focus="outline:3px solid #437CB7;outline-offset:2px">
+<svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+<span>Activate with Google</span>
+</button>
+<button type="button" style="border:0;background:none;padding:0;cursor:pointer;font-family:Afacad,sans-serif;font-size:clamp(19px,2.1vw,22px);line-height:1.4;font-weight:600;color:#437CB7;text-decoration:underline;text-wrap:pretty" style-hover="color:#222761" style-focus="outline:3px solid #437CB7;outline-offset:3px">Learn how to activate an iDriveMS account as an organization (vehicle dealer, business, trust, nonprofit or government entity).</button>
+</div>
+
+<button type="button" onClick="{{ submit }}" style="display:{{ form.submitDisplay }};align-items:center;justify-content:center;gap:10px;padding:13px 26px;border:2px solid #DE2831;border-radius:999px;background:#DE2831;color:#fff;font-family:Afacad,sans-serif;font-weight:600;font-size:clamp(20px,2.2vw,22px);cursor:pointer;transition:background .18s,color .18s,transform .18s,box-shadow .18s" style-hover="background:#FFFFFF;color:#DE2831;transform:translateY(-2px);box-shadow:0 6px 18px rgba(6,8,28,.18)" style-focus="outline:3px solid #95BCDE;outline-offset:2px">
 <span>{{ form.cta }}</span><span class="mi" style="font-size:22px">{{ form.ctaIcon }}</span>
 </button>
 
@@ -202,14 +215,14 @@ class Component extends DCLogic {
 
     const copy = {
       signin: { heading: "Sign in to iDriveMS", sub: "Use the email address on your iDriveMS account.", cta: "Sign In", ctaIcon: "arrow_forward" },
-      signup: { heading: "Create your account", sub: "Use the name exactly as it appears on your license or ID.", cta: "Create Account", ctaIcon: "arrow_forward" },
+      signup: { heading: "Activate Your Account", sub: "", cta: "Activate", ctaIcon: "arrow_forward" },
       reset: { heading: "Reset your password", sub: "We’ll email you a link to set a new password.", cta: "Send Reset Link", ctaIcon: "send" }
     }[s.mode];
 
     return {
       modes: [
         { label: "Sign In", bg: s.mode === "signup" ? "transparent" : "#DE2831", color: s.mode === "signup" ? "#444444" : "#FFFFFF", onClick: () => this.setState({ mode: "signin", error: "", done: "" }) },
-        { label: "Create Account", bg: s.mode === "signup" ? "#DE2831" : "transparent", color: s.mode === "signup" ? "#FFFFFF" : "#444444", onClick: () => this.setState({ mode: "signup", error: "", done: "" }) }
+        { label: "Activate Account", bg: s.mode === "signup" ? "#DE2831" : "transparent", color: s.mode === "signup" ? "#FFFFFF" : "#444444", onClick: () => this.setState({ mode: "signup", error: "", done: "" }) }
       ],
       email: s.email, password: s.password, first: s.first, last: s.last,
       onEmail: (e) => this.setState({ email: e.target.value, error: "" }),
@@ -220,6 +233,9 @@ class Component extends DCLogic {
       toggleRemember: () => this.setState({ remember: !s.remember }),
       goReset: () => this.setState({ mode: "reset", error: "", done: "" }),
       goSignup: () => this.setState({ mode: "signup", error: "", done: "" }),
+      goSignin: () => this.setState({ mode: "signin", error: "", done: "" }),
+      activateEmail: () => this.setState({ error: "", done: "Check your email for a link to activate your iDriveMS account." }),
+      activateGoogle: () => this.setState({ error: "", done: "Activated with Google. Taking you to My Account…" }),
       googleSignIn: () => this.setState({ error: "", done: "Signed in with Google. Taking you to My Account…" }),
       submit: () => this.submit(),
       form: {
@@ -231,9 +247,13 @@ class Component extends DCLogic {
         errorDisplay: s.error ? "flex" : "none",
         done: s.done,
         doneDisplay: s.done ? "flex" : "none",
-        nameDisplay: s.mode === "signup" ? "flex" : "none",
+        nameDisplay: "none",
         socialDisplay: s.mode === "signin" ? "flex" : "none",
-        passwordDisplay: s.mode === "reset" ? "none" : "flex",
+        subDisplay: copy.sub ? "flex" : "none",
+        emailDisplay: s.mode === "signup" ? "none" : "flex",
+        activateDisplay: s.mode === "signup" ? "flex" : "none",
+        submitDisplay: s.mode === "signup" ? "none" : "flex",
+        passwordDisplay: (s.mode === "reset" || s.mode === "signup") ? "none" : "flex",
         rowDisplay: s.mode === "signin" ? "flex" : "none",
         emailBorder: s.error ? "#DE2831" : "#E4EAF4",
         pwType: s.showPw ? "text" : "password",
