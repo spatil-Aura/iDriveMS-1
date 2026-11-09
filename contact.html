@@ -127,15 +127,15 @@ a:hover{color:#DE2831}
 
 <footer style="background:#222761">
 <div style="max-width:1320px;margin:0 auto;padding:36px clamp(20px,4vw,40px);display:flex;flex-direction:{{ footerDir }};flex-wrap:wrap;align-items:{{ footerAlign }};gap:{{ footerGap }}">
-<div style="width:96px;height:76px;border-radius:14px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+<a href="index.html#top" aria-label="iDriveMS home" style="text-decoration:none;width:96px;height:76px;border-radius:14px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0">
 <img src="assets/ms-mark.png" alt="iDriveMS" style="width:88px;height:auto">
-</div>
+</a>
 <div style="flex:{{ footerLinksFlex }};display:flex;flex-direction:{{ footerLinksDir }};flex-wrap:{{ footerWrap }};gap:{{ footerLinksGap }};align-items:{{ footerLinksAlign }};justify-content:{{ footerJustify }}">
 <sc-for list="{{ footerLinks }}" as="f" hint-placeholder-count="6">
 <a href="{{ f.href }}" target="{{ f.target }}" rel="noopener" style="font-size:clamp(16px,1.35vw,20px);white-space:nowrap;letter-spacing:.3px;color:#FFFFFF;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .18s,color .18s" style-hover="color:#95BCDE;border-color:#95BCDE">{{ f.label }}</a>
 </sc-for>
 </div>
-<img src="assets/ms-seal.png" alt="State of Mississippi" style="width:clamp(104px,9vw,132px);height:auto;flex-shrink:0">
+<a href="https://www.ms.gov/" target="_blank" rel="noopener" aria-label="MS.gov" style="display:flex;flex-shrink:0"><img src="assets/ms-seal.png" alt="State of Mississippi" style="width:clamp(104px,9vw,132px);height:auto;flex-shrink:0"></a>
 </div>
 <div style="border-top:1px solid rgba(255,255,255,.14)">
 <div style="max-width:1320px;margin:0 auto;padding:18px clamp(20px,4vw,40px);font-size:17px;color:rgba(255,255,255,.6)">Mississippi Department of Public Safety · Driver Service Bureau</div>
@@ -150,7 +150,7 @@ const NAV = [
   { label: "Driver’s License & ID", items: [L("Renew Driver’s License"), L("Renew ID Card"), L("Replace Driver’s License or ID Card"), L("MS Wallet/Mobile ID", "login.html"), L("Driver’s License Manual", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"), L("Mentor Guide", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-10/10.31.2025_MentorGuide.pdf"), L("Motorcycle Manual", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2023-07/S-Motorcycle%20%20Manual%2023.pdf")] },
   { label: "Commercial Drivers", items: [L("Commercial Operator License: Classes A–C", "https://www.driverservicebureau.dps.ms.gov/Drivers/Classes_A-D"), L("CDL Manual", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-03/001%20Combined%20CDL%20Driver%20Manual%20with%20Supp%202-24.pdf"), L("Schedule Your CDL Road Test", "https://www.driverservicebureau.dps.ms.gov/Drivers/Road_Test"), L("CDL Medical Status Verification"), L("CDL Medical Card Submission", "cdl-medical-card.html"), L("CDL Hazmat Enrollment Program", "https://www.driverservicebureau.dps.ms.gov/node/127"), L("Application For Military Skills Test Waiver", "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2022-04/application-military-skills-test-waiver-41819.pdf")] },
   { label: "Records & Fees", items: [L("Request Motor Vehicle Record"), L("Pay Reinstatement Fee"), L("Change Address")] },
-  { label: "Resources", items: [L("Schedule an Appointment"), L("Contact Us", "contact.html"), L("Register to Vote", "https://www.sos.ms.gov/elections-voting/voter-registration-information"), L("Frequently Asked Questions", "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"), L("Driver Service Bureau Website", "https://www.driverservicebureau.dps.ms.gov/"), L("MORA", "https://msora.org/")] },
+  { label: "Resources", items: [L("Schedule an Appointment"), L("Contact Us", "contact.html"), L("Register to Vote", "https://www.sos.ms.gov/elections-voting/voter-registration-information"), L("Frequently Asked Questions", "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"), L("Driver Service Bureau Website", "https://www.driverservicebureau.dps.ms.gov/"), L("MS Organ Recovery Agency", "https://msora.org/")] },
   { label: "Activation", items: [L("DSB Invitation Code", "invitation-code.html"), L("Reset Multi-Factor Verification", "reset-mfa.html"), L("Recover Username", "recover-username.html")] }
 ];
 
